@@ -1,0 +1,19 @@
+.square {
+    width: 50px;
+    height: 50px;
+    border: 3px solid black;
+}
+
+#gameboardHolder {
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    justify-content: center;
+    border: 3px solid black;
+    width: min-content;
+}
+
+#rowHolder {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+
+}

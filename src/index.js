@@ -1,9 +1,5 @@
-function component() {
-    const element = document.createElement('div');
-  
-    element.innerHTML = 'yo';
-  
-    return element;
-  }
-  
-  document.body.appendChild(component());
+import './style.css';
+import { Gameboard } from './gameboardData';
+
+const mainGameboard = new Gameboard();
+mainGameboard.gameboardDOM(mainGameboard.root);
