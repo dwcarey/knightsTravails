@@ -1,0 +1,16 @@
+{
+  "name": "knightstravails",
+  "version": "1.0.0",
+  "description": "Knights Travails - The Odin Project",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.87.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
