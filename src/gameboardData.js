@@ -1,4 +1,6 @@
-import { Square } from "./squareClass";
+import { Square } from './squareClass';
+import { KnightData } from './knightMoveData';
+
 class Gameboard {
   constructor() {
     this.board = this.createGameBoard();
@@ -24,8 +26,7 @@ class Gameboard {
         if (i % 2 === 0) {
           if (j % 2 === 0) {
             square.setColour('white');
-          }
-          else {
+          } else {
             square.setColour('black');
           }
         }
@@ -33,8 +34,7 @@ class Gameboard {
         if (i % 2 !== 0) {
           if (j % 2 !== 0) {
             square.setColour('white');
-          }
-          else {
+          } else {
             square.setColour('black');
           }
         }
@@ -45,12 +45,22 @@ class Gameboard {
   }
 
   placeKnight() {
-      const x = Math.floor(Math.random() * 7);
-      const y = Math.floor(Math.random() * 7);
-      const selectedSquare = this.board[x][y];
-      selectedSquare.setHasKnight(true);
+    const x = Math.floor(Math.random() * 7);
+    const y = Math.floor(Math.random() * 7);
+    const selectedSquare = this.board[x][y];
+    selectedSquare.setHasKnight(true);
   }
 
+  getKnightLocation() {
+    for (let i = 0; i < this.board.length; i += 1) {
+      for (let j = 0; j < this.board[i].length; j += 1) {
+        if (this.board[i][j].getHasKnight() === true) {
+          return [i, j];
+        }
+      }
+    }
+    return null;
+  }
 
   drawGameboardDOM() {
     const gameboardContainer = document.createElement('div');
@@ -66,8 +76,7 @@ class Gameboard {
 
         if (currentSquare.getColour() === 'black') {
           squareDOM.classList.add('black');
-        }
-        else {
+        } else {
           squareDOM.classList.add('white');
         }
 
