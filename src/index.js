@@ -8,10 +8,10 @@ console.log(mainGameboard);
 mainGameboard.populateSquares(mainGameboard);
 console.log(mainGameboard);
 
-mainGameboard.placeKnight(mainGameboard);
+const knight = mainGameboard.placeKnight(mainGameboard);
 console.log(mainGameboard);
 
 mainGameboard.drawGameboardDOM(mainGameboard);
 
-const knightLocation = mainGameboard.getKnightLocation();
-console.log(knightLocation);
+console.log(knight.findKnightPath(knight));
+

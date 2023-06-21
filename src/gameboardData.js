@@ -49,7 +49,7 @@ class Gameboard {
     const y = Math.floor(Math.random() * 7);
     const selectedSquare = this.board[x][y];
     selectedSquare.setHasKnight(true);
-
+    return new KnightData([x, y]);
   }
 
   getKnightLocation() {
