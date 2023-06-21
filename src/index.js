@@ -13,10 +13,5 @@ console.log(mainGameboard);
 
 mainGameboard.drawGameboardDOM(mainGameboard);
 
-const knight = new KnightData(mainGameboard.getKnightLocation());
-console.log(knight);
-
-knight.getLegalMoves(knight.root, knight);
-console.log(knight);
-
-knight.findKnightPath(knight);
+const knightLocation = mainGameboard.getKnightLocation();
+console.log(knightLocation);
