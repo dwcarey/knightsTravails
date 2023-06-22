@@ -1,9 +1,11 @@
+
+
 .square {
-    width: 70px;
-    height: 70px;
-    font-size: 50px;
+    width: 8vw;
+    height: 8vw;
+    font-size: 7vw;
     text-align: center;
-    color: brown;
+    color: #0038d1;
 }
 
 .black {
@@ -25,5 +27,16 @@
 }
 
 .destination {
-    background-color: red;
+    background-color: rgb(255, 17, 0);
 }
+
+.knight {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('./knight.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+

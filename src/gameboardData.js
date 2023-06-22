@@ -1,4 +1,5 @@
 import { Square } from './squareClass';
+import { knight } from '.';
 import { KnightData } from './knightMoveData';
 
 class Gameboard {
@@ -82,6 +83,7 @@ class Gameboard {
         }
       }
     }
+    this.clearPath();
     return this.board[location[0]][location[1]].setHasKnight(true);
   }
 
@@ -93,8 +95,24 @@ class Gameboard {
         }
       }
     }
+    this.clearPath();
     return this.board[location[0]][location[1]].setIsDestination(true);
   }
+
+  clearPath() {
+    for (let i = 0; i < this.board.length; i += 1) {
+      for (let j = 0; j < this.board[i].length; j += 1) {
+        if (this.board[i][j].getPathPosition() !== null) {
+        this.board[i][j].setPathPosition(null);
+        }
+      }
+    }
+
+    for (let i = 0; i < knight.movePath.length; i += 1) {
+      knight.movePath.shift();
+    }
+  }
+
 
   drawGameboardDOM() {
     const gameboardContainer = document.getElementById('gameboardContainer');
@@ -116,11 +134,16 @@ class Gameboard {
         }
 
         if (currentSquare.getHasKnight() === true) {
-          squareDOM.textContent = 'K';
+          squareDOM.classList.add('knight');
         }
 
         if (currentSquare.getIsDestination() === true) {
           squareDOM.classList.add('destination');
+        }
+
+        if (currentSquare.getPathPosition() !== null) {
+          squareDOM.classList.add('path');
+          squareDOM.textContent = `${currentSquare.getPathPosition()}`;
         }
 
         squareDOM.classList.add('square');

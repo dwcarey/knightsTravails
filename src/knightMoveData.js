@@ -41,25 +41,14 @@ class KnightData {
     console.log(`knight location: ${startNode.root}`);
     console.log(`destination: ${destination}`);
 
-    if (startNode.root === destination) {
-      resultFound = true;
-      return 0;
-    }
-
     if (startNode === null || startNode === undefined) {
       return null;
     }
 
     while (resultFound === false) {
       const currentItem = queue.shift();
-      console.log('current item:');
-      console.log(currentItem);
       const movesArray = this.getLegalMoves(currentItem.root);
 
-      console.log(currentItem.root);
-      console.log(destination);
-      console.log('QUEUE');
-      console.log(queue);
       if ((currentItem.root[0] === destination[0]) && (currentItem.root[1] === destination[1])) {
         currentItem.movePath.push(currentItem.root);
         resultFound = true;
