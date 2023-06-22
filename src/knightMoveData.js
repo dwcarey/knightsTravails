@@ -4,6 +4,10 @@ class KnightData {
     this.movePath = [];
   }
 
+  setRoot(newRoot) {
+    this.root = newRoot;
+  } 
+
   // get legal moves - mopve to knioght treee class
   // convert this to add nodes to above tree
   getLegalMoves(knightLocation) {

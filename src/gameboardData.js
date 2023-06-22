@@ -63,9 +63,42 @@ class Gameboard {
     return null;
   }
 
+  getDesintationLocation() {
+    for (let i = 0; i < this.board.length; i += 1) {
+      for (let j = 0; j < this.board[i].length; j += 1) {
+        if (this.board[i][j].getIsDestination() === true) {
+          return [i, j];
+        }
+      }
+    }
+    return null;
+  }
+
+  setKnightLocation(location) {
+    for (let i = 0; i < this.board.length; i += 1) {
+      for (let j = 0; j < this.board[i].length; j += 1) {
+        if (this.board[i][j].getHasKnight() === true) {
+          this.board[i][j].setHasKnight(false);
+        }
+      }
+    }
+    return this.board[location[0]][location[1]].setHasKnight(true);
+  }
+
+  setDestinationLocation(location) {
+    for (let i = 0; i < this.board.length; i += 1) {
+      for (let j = 0; j < this.board[i].length; j += 1) {
+        if (this.board[i][j].getIsDestination() === true) {
+          this.board[i][j].setIsDestination(false);
+        }
+      }
+    }
+    return this.board[location[0]][location[1]].setIsDestination(true);
+  }
+
   drawGameboardDOM() {
-    const gameboardContainer = document.createElement('div');
-    gameboardContainer.id = 'gameboardContainer';
+    const gameboardContainer = document.getElementById('gameboardContainer');
+    gameboardContainer.replaceChildren();
 
     for (let i = 0; i < this.board.length; i += 1) {
       const rowHolder = document.createElement('div');
@@ -74,6 +107,7 @@ class Gameboard {
       for (let j = 0; j < this.board[i].length; j += 1) {
         const currentSquare = this.board[i][j];
         const squareDOM = document.createElement('div');
+        squareDOM.id = `${i}-${j}`;
 
         if (currentSquare.getColour() === 'black') {
           squareDOM.classList.add('black');
@@ -85,13 +119,16 @@ class Gameboard {
           squareDOM.textContent = 'K';
         }
 
+        if (currentSquare.getIsDestination() === true) {
+          squareDOM.classList.add('destination');
+        }
+
         squareDOM.classList.add('square');
 
         rowHolder.appendChild(squareDOM);
       }
       gameboardContainer.appendChild(rowHolder);
     }
-    document.body.appendChild(gameboardContainer);
   }
 }
 
