@@ -12,9 +12,9 @@ body {
 .square {
     width: 8vw;
     height: 7vw;
-    font-size: 7vw;
+    font-size: min(7.5vw, 6.5vh);
     text-align: center;
-    padding-top: 1vw;
+    padding-top: 1px;
     color: #00258b;
     font-weight: 500;
     font-family: 'Courier New', Courier, monospace;
@@ -22,10 +22,12 @@ body {
 
 .black {
     background-color: black;
+    color: aliceblue;
 }
 
 .white {
     background-color: aliceblue;
+    color: black;
 }
 
 #gameboardContainer {
@@ -44,6 +46,7 @@ body {
 
 .destination {
     background-color: rgb(255, 17, 0);
+    color: #00227e;
 }
 
 .knight {
@@ -61,7 +64,7 @@ button {
     color: aliceblue;
     border: none;
     border-style: none;
-    width: 50vw;
+    width: min(50vw, 40vh);
     height: 4vh;
 }
 
