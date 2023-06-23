@@ -1,15 +1,31 @@
+body {
+    background-color: rgb(110, 167, 253);
+}
 
+#siteContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 .square {
     width: 8vw;
-    height: 8vw;
+    height: 7vw;
     font-size: 7vw;
     text-align: center;
-    color: #0038d1;
+    padding-top: 1vw;
+    color: #00258b;
+    font-weight: 500;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .black {
     background-color: black;
+}
+
+.white {
+    background-color: aliceblue;
 }
 
 #gameboardContainer {
@@ -36,7 +52,39 @@
     justify-content: center;
     background-image: url('./knight.svg');
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: bottom -2px center;
 
 }
 
+button {
+    background-color: black;
+    color: aliceblue;
+    border: none;
+    border-style: none;
+    width: 50vw;
+    height: 4vh;
+}
+
+#buttonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 15vh;
+    margin-bottom: 4vh;
+    margin-top: 4vh;
+}
+
+.selected {
+    background-color: #00227e;
+}
+
+
+
+@media (min-width: 768px) {
+    .square {
+        width: min(8vw, 7vh);
+        height: min(8vw, 7vh);
+        padding: 0;
+    }
+
+}

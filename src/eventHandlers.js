@@ -10,12 +10,16 @@ function buttonEventListeners() {
 
   placeKnightButton.addEventListener('click', () => {
     placeKnightActive = true;
+    placeKnightButton.classList.add('selected');
     placeDestinationActive = false;
+    placeDestinationButton.classList.remove('selected');
   });
 
   placeDestinationButton.addEventListener('click', () => {
     placeKnightActive = false;
+    placeKnightButton.classList.remove('selected');
     placeDestinationActive = true;
+    placeDestinationButton.classList.add('selected');
   });
 
   calculateButton.addEventListener('click', () => {
